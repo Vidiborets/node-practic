@@ -4,6 +4,8 @@ const products = require('./product.json')
 
 const app = express();
 
+const PORT = process.env.PORT || 4444
+
 app.engine('handlebars', engine());
 
 app.set('view engine', 'handlebars');
@@ -31,6 +33,6 @@ app.get('/product/:productId',(req,res)=>{
     res.render('product',{ product,cssFileName: 'products' ,pageTitle: 'Товар'})
 })
 
-app.listen(4444,()=>{
-    console.log(`Application service is running on port ${4444}`)
+app.listen(PORT,()=>{
+    console.log(`Application service is running on port ${PORT}`)
 })
